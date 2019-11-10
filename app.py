@@ -6,7 +6,7 @@ brain = None
 
 def load_brain():
     global brain
-    brain = model.load_model()
+    brain = model.load_model(force=True)
 
 keys = ["q{}".format(x) for x in range(1,30)]
 
