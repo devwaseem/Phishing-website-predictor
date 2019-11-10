@@ -1,0 +1,228 @@
+<html>
+   <head>
+      <title>Phishing website Predictor</title>
+   </head>
+   
+   <body>
+        <h1 style="text-align: center;margin-top: 50px;margin-bottom: 50px;">Phishing website Predictor</h1>
+      <form action="/predict" method="POST">
+            <fieldset id="q1">
+                <label>Is the URL using IP address instead of Domain name. (example: http://125.98.3.123/fake.html )</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q1"> Yes <br>
+                    <input type="radio" value=1 name="q1"> No <br>
+                </div>
+            </fieldset>
+            <fieldset id="q2">
+                <label>Length of the URL</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value="1" name="q2"> less than 54 <br>
+                    <input type="radio" value="0" name="q2"> less than 75 <br>
+                    <input type="radio" value="-1" name="q2"> more than 75 <br>
+                </div>
+            </fieldset>
+            <fieldset id="q3">
+                <label>Is URL generated from URL Shortening services? (example: TinyUrl)</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q3"> Yes <br>
+                    <input type="radio" value=1 name="q3"> No <br>
+                </div>
+            </fieldset>
+            <fieldset id="q4">
+                <label>Is URL containing "@" symbol ?</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q4"> Yes <br>
+                    <input type="radio" value=1 name="q4"> No <br>
+                </div>
+            </fieldset>
+            <fieldset id="q5">
+                <label>Is URL redirecting using "//"</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q5"> Yes <br>
+                    <input type="radio" value=1 name="q5"> No <br>
+                </div>
+            </fieldset>
+            <fieldset id="q6">
+                <label>Is URL containts Prefix or Suffix seperated by (-) to the Domain (example:http://www.Confirme-paypal.com/)</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q6"> Yes <br>
+                    <input type="radio" value=1 name="q6"> No <br>
+                </div>
+            </fieldset>
+            <fieldset id="q7">
+                <label>Number of Sub Domains (example: http://www.hud.ac.uk/students/ )</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q7"> only one <br>
+                    <input type="radio" value=0 name="q7"> two <br>
+                    <input type="radio" value=1 name="q7"> more than two <br>
+                </div>
+            </fieldset>
+            <fieldset id="q8">
+                <label>HTTPS and Age of Certificate</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=1 name="q8"> Using HTTPS and Age of certificate is more than 1 <br>
+                    <input type="radio" value=0 name="q8"> Using HTTPS but issuer is not Trusted <br>
+                    <input type="radio" value=-1 name="q8"> Not using HTTPS <br>
+                </div>
+            </fieldset>
+            <fieldset id="q9">
+                <label>Domain Registration in Years </label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q9"> Less than 1 <br>
+                    <input type="radio" value=1 name="q9"> More than 1 <br>
+                </div>
+            </fieldset>
+            <fieldset id="q10">
+                <label>Favicon source</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=1 name="q10"> Favicon loaded from same Host <br>
+                    <input type="radio" value=-1 name="q10"> Favicon loaded from external or other host <br>
+                </div>
+            </fieldset>
+            <fieldset id="q11">
+                <label>Using Non-Standard Port</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q11"> Yes <br>
+                    <input type="radio" value=1 name="q11"> No <br>
+                </div>
+            </fieldset>
+            <fieldset id="q12">
+                <label>Is the URL contains HTTPS token in the domain part? (example: http://https-www-paypal-it-webapps-mpp-home.soft-hair.com/ )</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q12"> Yes <br>
+                    <input type="radio" value=1 name="q12"> No <br>
+                </div>
+            </fieldset>
+            <fieldset id="q13">
+                <label>Request URL from the website contains objects from external source like image or video</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=1 name="q13"> % of Request URL less than 22% <br>
+                    <input type="radio" value=0 name="q13"> % of Request URL less than 61%  <br>
+                    <input type="radio" value=-1 name="q13"> % of Request URL more than 61%  <br>
+                </div>
+            </fieldset>
+            <fieldset id="q14">
+                <label> URL of Anchor, amount of links to external website</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=1 name="q14"> % of URL of Anchor less than 31% <br>
+                    <input type="radio" value=0 name="q14"> % of URL of Anchor less than 67% <br>
+                    <input type="radio" value=-1 name="q14"> % of URL of Anchor more than 67% <br>
+                </div>
+            </fieldset>
+            <fieldset id="q15">
+                <label>Links in meta, script and link tags</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=1 name="q15"> % of Links less than 17% <br>
+                    <input type="radio" value=0 name="q15"> % of Links less than 81% <br>
+                    <input type="radio" value=-1 name="q15"> % of Links more than 81% <br>
+                </div>
+            </fieldset>
+            <fieldset id="q16">
+                <label>Server form handler (SFH) refers to ?</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q16"> about:blank <br>
+                    <input type="radio" value=0 name="q16"> external domain <br>
+                    <input type="radio" value=1 name="q16"> same website <br>
+                </div>
+            </fieldset>
+            <fieldset id="q17">
+                <label>Submitting information to email</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q17"> Yes, website is using "mailto" or "mail()" function <br>
+                    <input type="radio" value=1 name="q17"> No <br>
+                </div>
+            </fieldset>
+            <fieldset id="q18">
+                <label>The Host name is included in URL ? </label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=1 name="q18"> Yes <br>
+                    <input type="radio" value=-1 name="q18"> No <br>
+                </div>
+            </fieldset>
+            <fieldset id="q19">
+                <label>Redirect count</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=1 name="q19"> less than 1 <br>
+                    <input type="radio" value=0 name="q19"> less than 4 <br>
+                    <input type="radio" value=-1 name="q19"> more than 4 <br>
+                </div>
+            </fieldset>
+            <fieldset id="q20">
+                <label>onMouseOver function changes status bar?</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q20"> Yes <br>
+                    <input type="radio" value=1 name="q20"> No <br>
+                </div>
+            </fieldset>
+            <fieldset id="q21">
+                <label>Is Right click disabled in the website?</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q21"> Yes <br>
+                    <input type="radio" value=1 name="q21"> No <br>
+                </div>
+            </fieldset>
+            <fieldset id="q22">
+                <label>Website has Popups?</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q22"> Yes <br>
+                    <input type="radio" value=1 name="q22"> No <br>
+                </div>
+            </fieldset>
+            <fieldset id="q23">
+                <label>Is website using IFrame to display content of external website?</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q23"> Yes <br>
+                    <input type="radio" value=1 name="q23"> No <br>
+                </div>
+            </fieldset>
+            <fieldset id="q24">
+                <label>Age of Domain</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=1 name="q24">Equal to or More than 6 Months <br>
+                    <input type="radio" value=-1 name="q24"> Less than 6 Months <br>
+                </div>
+            </fieldset>
+            <fieldset id="q25">
+                <label>Is DNS Record avaialble for the Website?</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=1 name="q25"> Yes <br>
+                    <input type="radio" value=-1 name="q25"> No <br>
+                </div>
+            </fieldset>
+            <fieldset id="q26">
+                <label>Website traffic? (can be determined by Alexa score)</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q26"> less than 1000 <br>
+                    <input type="radio" value=0 name="q26"> less than 100,000 <br>
+                    <input type="radio" value=1 name="q26"> more than 100,000 <br>
+                </div>
+            </fieldset>
+            <fieldset id="q27">
+                <label>Website Page Rank</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q27"> Less than 0.2 <br>
+                    <input type="radio" value=1 name="q27"> More than 0.2 <br>
+                </div>
+            </fieldset>
+            <fieldset id="q28">
+                <label>Is Webpage indexed by google?</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=1 name="q28"> Yes <br>
+                    <input type="radio" value=-1 name="q28"> No <br>
+                </div>
+            </fieldset>
+            <fieldset id="q29">
+                <label>Number of links pointing to page?</label>
+                <div style="margin-top:20px">
+                    <input type="radio" value=-1 name="q29"> 0 <br>
+                    <input type="radio" value=0 name="q29"> Less than or equal to 2 <br>
+                    <input type="radio" value=1 name="q29"> More than 2 <br>
+                </div>
+            </fieldset>
+            <div style="display: flex;width: 100%;align-items: center; justify-content: center;margin-top: 50px;">
+                <input style="width: 200px;height: 100px;font-size: 18px;margin-bottom: 100px;" type="submit" value="submit">    
+            </div>
+            
+      </form>
+   </body>
+</html>

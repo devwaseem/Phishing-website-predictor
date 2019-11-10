@@ -1,0 +1,21 @@
+<html>
+   <head>
+         <title>Phishing website Predictor</title>
+   </head>
+   
+   <body>
+      <h1 style="text-align: center;margin-top: 50px;">Phishing website Predictor</h1>
+      {% if not can_proceed %}
+      <p style="text-align: center;margin-top: 50px;font-size: 20px;">Please Answer all the Questions to Predict</p> 
+      {% else %}
+      <p style="text-align: center;margin-top: 50px;font-size: 20px;">The Website seems to be a {{result}} Website</p> 
+      {% endif %}
+      <div style="display: flex;width: 100%;align-items: center; justify-content: center;margin-top: 50px;">
+         {% if not can_proceed %}
+            <button style="width: 200px;height: 50px;font-size: 18px;" onclick="window.history.back()">Go back</button>
+         {% else %}
+            <button style="width: 200px;height: 50px;font-size: 18px;" onclick="location.href='/app'">Predict Again</button>
+         {% endif %}
+      </div>
+   </body>
+</html>
